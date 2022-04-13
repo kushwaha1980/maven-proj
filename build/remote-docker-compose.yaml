@@ -1,0 +1,5 @@
+version: "3"
+services:
+  maven:
+    container_name: maven
+    image: "kumard31/$IMAGE:$BUILD_TAG"
