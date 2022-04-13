@@ -1,8 +1,8 @@
 version: "3"
 services:
-  japp:
-    container_name: japp
-    image: "maven-pro:${BUILD_TAG}"
+  app:
+    container_name: app
+    image: "app${BUILD_TAG}"
     build:
       context: .
       dockerfile: Dockerfile-java
