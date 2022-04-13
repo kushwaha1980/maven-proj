@@ -8,24 +8,27 @@ pipeline{
     stage("build-stage"){
 	  steps{
 	    echo 'Running build automation'
-	    sh "./build/mvn.sh mvn -B -DskipTests clean package"
-	    sh "./build/build.sh"
+	    sh ''' 
+		./build/mvn.sh mvn -B -DskipTests clean package
+	    	./build/build.sh
+	
+	       '''
 	  }
 	}
 	stage("Test-stage"){
 	  steps{
-	    sh "/var/jenkins_home/workspace/maven-proj/build/mvn.sh mvn test"
+	    sh "./build/mvn.sh mvn test"
 	  }
 	}
 	stage("push-stage"){
 	  steps{
-	    sh "/var/jenkins_home/workspace/maven-proj/maven-proj/build/push.sh"
+	    sh "./build/push.sh"
 	  }
 	}
 	
 	stage("deploy-stage"){
 	  steps{
-	    sh "/var/jenkins_home/workspace/maven-proj/build/deploy.sh"
+	    sh "./build/deploy.sh"
 	  }
 	}
   }
