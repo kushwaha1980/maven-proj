@@ -7,8 +7,8 @@ pipeline{
     stage("build-stage"){
 	  steps{
 	    echo 'Running build automation'
-	    sh "/var/jenkins_home/workspace/maven-proj/build/mvn.sh mvn -B -DskipTests clean package"
-	    sh "/var/jenkins_home/workspace/maven-proj/build/build.sh"
+	    sh "./build/mvn.sh mvn -B -DskipTests clean package"
+	    sh "./build/build.sh"
 	  }
 	}
 	stage("Test-stage"){
