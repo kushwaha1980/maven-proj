@@ -1,9 +1,8 @@
 #!/usr/bin/bash
-rm ~/jenkins/pipeline/build/*.jar
-cp -r ~/jenkins/pipeline/app/target/*.jar ~/jenkins/pipeline/build/
+cp -f app/target/*.jar build/
 
 echo "********************************"
 echo "*****building-docker-image******"
 echo "********************************"
 
-cd ~/jenkins/pipeline/build/ && docker-compose build
+cd build/ && docker-compose build --no-cache
