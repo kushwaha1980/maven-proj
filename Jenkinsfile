@@ -2,7 +2,7 @@ pipeline{
   agent any
   environment {
     PASS = credentials('DPASS')
-    BUID_TAG = credentials('BUID_TAG')
+    BUILD_TAG = credentials('BUILD_TAG')
   }
   stages{
     stage("build-stage"){
